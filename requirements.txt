@@ -1,0 +1,7 @@
+# This requirements.txt file does not specify versions.
+# Let's see if we can get things working first!
+diffusers
+transformers
+accelerate
+protobuf
+sentencepiece

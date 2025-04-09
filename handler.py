@@ -13,8 +13,8 @@ import io
 import base64
 from PIL import Image
 
-# Load Huggingface token from the environment.
-# Although Flux model is cached in the Docker image,
+# Load Hugging Face token from the environment.
+# Although the model should be cached in the Docker image,
 # you may still need the token too. Not sure.
 hf_token = os.environ.get("HF_TOKEN")
 login(token = hf_token)
@@ -35,7 +35,7 @@ def pil_to_base64_png(image: Image.Image) -> str:
 def generate_image(job):
     """This handler function assumes the prompt to be
     in prompt property in the input. If there is an exception,
-    returns empty string instead of base64."""
+    returns empty string instead of a base64 string."""
 
     try:
         prompt = job["input"]["prompt"]
@@ -59,7 +59,7 @@ def generate_image(job):
 
         return result
     except Exception as err:
-        print("Error during image generation:")
+        print("Exception during image generation:")
         print(err)
 
         result = {

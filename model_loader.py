@@ -9,9 +9,9 @@ from huggingface_hub import login
 import os
 
 def load_model():
-    # To preload the model, we need Huggingface token.
+    # To preload the model, we need Hugging Face token.
     # I think the RunPod GitHub integration build machine
-    # does not support giving environment variables during build time,
+    # does not support specifying environment variables,
     # so this may not work today.
     hf_token = os.environ.get("HF_BUILD_TOKEN")
     if not hf_token:
